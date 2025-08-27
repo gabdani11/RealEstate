@@ -2,11 +2,46 @@ import React, { useEffect, useRef, useState } from 'react'
 import './index.css'
 import 'remixicon/fonts/remixicon.css'
 import gsap from 'gsap'
+import { SplitText } from 'gsap/SplitText'
 import {motion} from 'motion/react'
 
 const App = () => {
   const tl = useRef(null)
   const [isOpen, setIsOpen] = useState(false)
+
+  useEffect(() => {
+    gsap.registerPlugin(SplitText)
+    const split = new SplitText('.herotile', { type: 'words, chars' })
+    const splitSub = new SplitText('.subheading', { type: 'words, chars' })
+    const paragraph = new SplitText('.paragraph', { type: 'lines, words, chars' })
+    gsap.from(split.chars, {
+      opacity: 0,
+      y: 50,
+      stagger: 0.05,
+      ease: 'back.out(1.7)',
+      duration: 1,
+      delay: 0.5,
+    })
+    gsap.from(splitSub.chars, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.05,
+      ease: 'none',
+      duration: 0.5,
+      delay: 1,
+    })
+    gsap.from(paragraph.lines, {
+      opacity: 0,
+      y: 20,
+      stagger: 0.3,
+      ease: 'back.out(1.7)',
+      duration: 1,
+      delay: 1,
+    })
+    
+
+
+  }, [])
 
   useEffect(() => {
     gsap.set('.navbarlist', { y: '-100%', })
@@ -116,15 +151,17 @@ const App = () => {
       {/* Hero Section */}
       <div className=" h-[90%] flex flex-col px-[50px] lg:px-[105px] justify-between overflow-hidden">
         
-        <h1 className="font-bold text-[80px] md:text-[200px] lg:text-[300px] xl:text-[400px] lg:leading-none"><span className='mr-[-27px]'></span>HOME</h1>
+        <h1 className="herotile font-bold text-[80px] md:text-[200px] lg:text-[300px] xl:text-[400px] lg:leading-none"><span className='mr-[-27px]'></span>HOME</h1>
         
         <div className='mb-20 w-[100%] z-10'>
-          <h2 className='font-medium text-[24px] lg:text-[40px] leading-7 lg:leading-10'>Get your <br/><span className='italic'>dream</span> house</h2>
-          <p className=' sm:w-[100%] md:w-[80%] lg:w-[30%] xl:w-[20%] 2xl:w-[20]  text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p>
+          <div className='overflow-hidden '>
+          <h2 className='subheading font-medium text-[24px] lg:text-[40px] leading-7 lg:leading-10'>Get your <br/><span className='italic'>dream</span> house</h2></div>
+          <div className='overflow-hidden'>
+          <p className='paragraph sm:w-[100%] md:w-[80%] lg:w-[30%] xl:w-[20%] 2xl:w-[20]  text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p></div>
           <button className='text-[17px] font-medium bg-[#CDCDCD] rounded-full px-3 py-1 mt-3'>Explore Properties</button>
         </div>
       </div>
-      <div className='md:pl-40 lg:pl-70 xl:pl-100 xl:top-60 absolute top-50 lg:top-40 2xl:top-40 right-0'>
+      <div className='houseimg md:pl-40 lg:pl-70 xl:pl-100 xl:top-60 absolute top-50 lg:top-40 2xl:top-40 right-0'>
       <img className=''src="./images/house.png" alt="house.png" />
       </div>
     </div>
