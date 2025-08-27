@@ -44,10 +44,10 @@ const App = () => {
   return (
     
     <div className="h-screen w-full relative overflow-x-hidden ">
-      {/* Navbar */}
-      <div className="w-full h-[10%] flex justify-between items-end px-[20px] lg:px-[60px] z-20 relative ">
-        <h1 className="text-[24px] font-semibold md:tracking-[2em] lg:tracking-[2.33em]">LuxeEstate</h1>
-        <div className="menu cursor-pointer" onClick={toggleMenu}>
+      {/* LOGO & Menu icons */}
+      <div className="w-full h-[10%] flex justify-between items-end px-[20px] lg:px-[60px] relative ">
+        <h1 className="text-[24px] font-semibold md:tracking-[2em] lg:tracking-[2.33em] z-20">LuxeEstate</h1>
+        <div className="menu cursor-pointer z-20" onClick={toggleMenu}>
           {isOpen ? (
             <motion.i
             whileHover={{ x: 10, transition: { type: "spring", stiffness: 300 } }}
@@ -116,15 +116,17 @@ const App = () => {
       {/* Hero Section */}
       <div className=" h-[90%] flex flex-col px-[50px] lg:px-[105px] justify-between overflow-hidden">
         
-        <h1 className="font-bold text-[80px] md:text-[200px] lg:text-[400px] lg:leading-none"><span className='mr-[-27px]'></span>HOME</h1>
+        <h1 className="font-bold text-[80px] md:text-[200px] lg:text-[300px] xl:text-[400px] lg:leading-none"><span className='mr-[-27px]'></span>HOME</h1>
         
         <div className='mb-20 w-[100%] z-10'>
           <h2 className='font-medium text-[24px] lg:text-[40px] leading-7 lg:leading-10'>Get your <br/><span className='italic'>dream</span> house</h2>
-          <p className=' w-[100%] lg:w-[15%] md:w-[150%]  text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p>
+          <p className=' sm:w-[100%] md:w-[80%] lg:w-[30%] xl:w-[20%] 2xl:w-[20]  text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p>
           <button className='text-[17px] font-medium bg-[#CDCDCD] rounded-full px-3 py-1 mt-3'>Explore Properties</button>
         </div>
       </div>
-      <img className='absolute top-50 lg:top-20 right-0'src="./images/house.png" alt="house.png" />
+      <div className='md:pl-40 lg:pl-70 xl:pl-100 xl:top-60 absolute top-50 lg:top-40 2xl:top-40 right-0'>
+      <img className=''src="./images/house.png" alt="house.png" />
+      </div>
     </div>
   )
 }
