@@ -2,20 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import './index.css'
 import 'remixicon/fonts/remixicon.css'
 import gsap from 'gsap'
-import SplitText from 'gsap/SplitText'
+
 import {motion} from 'motion/react'
 
 const App = () => {
-  gsap.registerPlugin(SplitText);
-
+  
   const tl = useRef(null)
-  
   const [isOpen, setIsOpen] = useState(false)
-
-  
-
-  
-
   useEffect(() => {
     
     gsap.set('.navbarlist', { y: '-100%', })
@@ -130,8 +123,8 @@ const App = () => {
         <div className='mb-20 w-[100%] z-10'>
           <div className='overflow-hidden '>
           <h2 className='subheading font-medium text-[24px] lg:text-[40px] leading-7 lg:leading-10'>Get your <br/><span className='italic'>dream</span> house</h2></div>
-          <div className='overflow-hidden'>
-          <p className=' sm:w-[100%] md:w-[80%] lg:w-[30%] xl:w-[20%] 2xl:w-[20]  text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p></div>
+          <div className='w-[100%] lg:w-[20%]'>
+          <p className='text-[16px]'>Find your dream home with ease. Explore modern apartments, family houses, and luxury villas designed to match your lifestyle. With trusted agents and verified listings, your perfect property is just a click away.</p></div>
           <button className='text-[17px] font-medium bg-[#CDCDCD] rounded-full px-3 py-1 mt-3'>Explore Properties</button>
         </div>
       </div>
